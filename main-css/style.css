@@ -15,52 +15,64 @@
 }
 /* Mobel */
 @media (max-width:521px) {
-    .header {
+    .container nav{
         flex-direction: column;
         gap: 2rem;
     }
 }
-@media (max-width:750px) {
+@media (max-width:878px) {
     .flex{
         flex-direction: column;
         text-align: center;
     }
+    button{
+        max-width: fit-content;
+    }
     h1{
-        font-size: 16px;
+        font-size: 2rem !important;
     }
     h2{
-        font-size: 1.5rem;
+        font-size: 1.3rem !important;
     }
-    p{
-        margin-bottom: 1rem;
-        line-height: 1.5;
+    body{
+        font-size: 15px !important;
     }
-
+    main .container section.flex{
+        padding: 1rem;
+    }
     main .container div.flex{
         padding: 2rem;
         gap: 4rem;
     }
-    main :first-child div.flex div{
+    main div.container,
+    footer div.container,
+    footer p.container{
+        padding: 0 1rem !important;
+    }
+    main :first-child section.flex div{
         order: 2;
     }
-    main :last-child div.flex div{
+    main :nth-child(3) section.flex div{
         order: 2;
     }
     main > :last-child{
         max-width: 400px;
     }
-    main > :last-child div.flex {
-        gap: 0rem;
+    main .container section.flex {
+        gap: 1rem;
+        text-align: center;
     }
     footer .flex{
         text-align: left;
         gap: 1.5rem;
     }
-    footer .flex .information{
+    footer .flex .information,
+    footer .flex ul{
         width: fit-content;
     }
     footer .flex div.social-media{
-        margin-inline: auto;
+        width: 100%;
+        text-align: center;
     }
     footer p.container{
        text-align: center !important; 
@@ -75,7 +87,7 @@ body{
     font-size: 18px;
 }
 .container{
-    max-width: 1300px;
+    max-width: 1100px;
     margin-inline: auto;
     padding: 0 2rem;
 }
@@ -84,17 +96,21 @@ body{
 /* Start Header  */
 header {
     background-image: url(../images/bg-hero-desktop.svg);
+    background-size: cover;
     background-color: var(--VeryPaleCyan);
 }
 
-.header{
+.container nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 0;
 }
-.header img{
-    width: 200px;
+.container nav > a > img{
+    max-width:200px;
+}
+.container nav button a{
+    color: black;
 }
 button{
     width: 200px;
@@ -114,6 +130,9 @@ button{
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
 }
+button a{
+    padding: 2rem;
+}
 button:hover{
     cursor: pointer;
     opacity: 0.8;
@@ -128,7 +147,7 @@ button.pink{
 .flex{
     display: flex;
     align-items: center;
-    padding: 2rem 0;
+    padding: 4rem 0;
     gap: 4rem;
 }
 .flex  picture img{ 
@@ -140,8 +159,7 @@ header .flex div p{
 }
 /* Style Typography */
 h1, 
-h2,
-h3{
+h2{
     font-family: 'Poppins', sans-serif;
     margin-bottom: 2rem;
     color: var(--VeryDarkCyan);
@@ -149,20 +167,23 @@ h3{
 h1{
     font-size: 3rem;
 }
-h2{
+h2
+{
     font-size: 2rem;
 }
 p{
     margin-bottom: 1rem;
     line-height: 1.5;
 }
-
+a{
+    text-decoration:none; 
+    color: white;
+}
 /* End Header  */
 
 /* Start Main  */
 main{
-    margin: 150px 0;
-    position: relative;
+    margin: 5rem 0 0;
 }
 main .container {
     margin-bottom: 2rem;
@@ -170,7 +191,7 @@ main .container {
 }
 main .container .flex{
     padding: 2rem 2rem 2rem 10rem;
-    box-shadow: 0 0 10px 5px #eeeeee;
+    box-shadow: 0 0 10px 5px #eeeeee56;
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -186,27 +207,28 @@ main .container .flex picture{
 }
 main > :last-child{
     max-width: 800px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    z-index: +9999;
+    
+    transform: translateY(120px);
+    -webkit-transform: translateY(120px);
+    -moz-transform: translateY(120px);
+    -ms-transform: translateY(120px);
+    -o-transform: translateY(120px);
 }
 main > :last-child .flex {
     flex-direction: column;
     gap: 0rem;
     padding: 3rem;
+    background-color: #fff;
 }
 /* End Main  */
 /* start footer  */
 footer {
     background-color: var(--VeryDarkCyan);
     color: white;
-    padding: 13.5rem 0 4.5rem;
-    z-index: -9999;
+    padding: 8rem 0 2rem;
+}
+footer .container > a > img {
+    max-width: 200px;
 }
 footer div.container,
 footer p.container{
@@ -217,46 +239,28 @@ footer .flex{
     justify-content: center;
 }
 footer .flex > *{
-    width: calc(100% /  3);
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
-} 
-footer .flex .information div{
-   display: flex;
-   align-items: flex-start;
+    width: calc(100% /  4);
 }
 footer * img{
     margin-right: 1rem;
 }
+footer .flex .information a {
+    margin-bottom: 1rem;
+    display: block;
+}
+
 footer ul{
     list-style: none;
 }
 footer ul li {
     margin-bottom: 1rem;
 }
+footer .flex .social-media{
+    text-align: center;
+}
 footer .flex .social-media i{
     font-size: 30px;
     margin-left: 1rem;
-}
-footer > :first-child img,
-footer .flex div div *,
-footer .flex ul li,
-footer .flex i{
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
-    -moz-transition: 0.1s;
-    -ms-transition: 0.1s;
-    -o-transition: 0.1s;
-}
-footer > :first-child img:hover,
-footer .flex div div *:hover,
-footer .flex ul li:hover,
-footer .flex i:hover{
-    cursor: pointer;
-    scale: 1.05;
 }
 footer p.container{
     text-align: end;
